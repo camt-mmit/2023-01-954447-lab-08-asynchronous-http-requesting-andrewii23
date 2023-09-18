@@ -3,12 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-star-war-page',
   standalone: true,
   imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  templateUrl: './star-war-page.component.html',
+  styleUrls: ['./star-war-page.component.scss'],
 })
-export class AppComponent {
-  title = 'my-api-app';
-}
+export class StarWarPageComponent {}

@@ -1,0 +1,27 @@
+<form [formGroup]="formGroup" (ngSubmit)="doSearchDataChange()">
+  <label>
+    <b>Search</b>
+    <input type="text" formControlName="search" />
+  </label>
+  <div class="paginate">
+    <button type="button" [disabled]="!data.previous" (click)="doPageChange(data.previous)">
+      <i class='bx bx-chevron-left' ></i>
+    </button>
+    <span>
+      {{ formGroup.controls.page.value? formGroup.controls.page.value : '1' }}
+      /
+      {{ pages }}
+    </span>
+    <button type="button" [disabled]="!data.next" (click)="doPageChange(data.next)">
+      <i class='bx bx-chevron-right' ></i>
+    </button>
+  </div>
+</form>
+
+<ul *ngIf="data.results.length > 0; else notfound">
+  <li class="nav-list" *ngFor="let item of data.results">{{ item.name }}</li>
+</ul>
+
+<ng-template #notfound>
+  <div>Not Found</div>
+</ng-template>
