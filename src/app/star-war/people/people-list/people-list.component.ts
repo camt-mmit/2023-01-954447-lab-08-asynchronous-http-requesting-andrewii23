@@ -14,12 +14,7 @@ export class PeopleListComponent {
   private readonly fb = inject(FormBuilder).nonNullable;
 
   protected readonly formGroup = this.fb.group({
-    search: [
-      '',
-      {
-        updateOn: 'submit',
-      },
-    ],
+    search: [''],
     page: [''],
   });
   @Input({ required: true }) data!: List<Person>;
@@ -48,7 +43,11 @@ export class PeopleListComponent {
   }
 
   protected doSearchDataChange(): void {
-    this.formGroup.controls.page.setValue('');
+    this.emitSearchData();
+  }
+
+  protected clearSearchInput(): void {
+    this.formGroup.controls.search.setValue('');
     this.emitSearchData();
   }
 

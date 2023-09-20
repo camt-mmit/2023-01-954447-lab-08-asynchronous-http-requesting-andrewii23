@@ -1,1 +1,5 @@
-<p>planets-list-page works!</p>
+<app-planets-list *ngIf="data$ | async as data; else loading" [data]="data.data" [searchData]="data.params" (searchDataChange)="doSearchDataChange($event)"></app-planets-list>
+
+<ng-template #loading>
+  <div class="loading">Loading...</div>
+</ng-template>

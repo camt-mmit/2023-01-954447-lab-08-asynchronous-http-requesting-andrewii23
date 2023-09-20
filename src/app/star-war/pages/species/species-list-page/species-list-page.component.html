@@ -1,1 +1,5 @@
-<p>species-list-page works!</p>
+<app-species-list *ngIf="data$ | async as data ; else loading" [data]="data.data" [searchData]="data.params" (searchDataChange)="doSearchDataChange($event)"/>
+
+<ng-template #loading>
+  <div class="loading">Loading...</div>
+</ng-template>

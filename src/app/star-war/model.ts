@@ -65,3 +65,57 @@ export type RawPerson = RawResource &
       vehicles: string[];
     }
   >;
+
+export interface Specie extends Resource {
+  name: string;
+  classification: string;
+  designation: string;
+  average_height: string;
+  average_lifespan: string;
+  eye_colors: string;
+  hair_colors: string;
+  skin_colors: string;
+  language: string;
+  homeworld: URL;
+  people: URL[];
+  films: URL[];
+  url: URL;
+  created: Date;
+  edited: Date;
+}
+
+export type RawSpecie = RawResource &
+  Raw<
+    Omit<Specie, 'created' | 'edited' | 'url'>,
+    {
+      homeworld: string;
+      people: string[];
+      films: string[];
+    }
+  >;
+
+export interface Planet extends Resource {
+  name: string;
+  diameter: string;
+  rotation_period: string;
+  orbital_period: string;
+  gravity: string;
+  population: string;
+  climate: string;
+  terrain: string;
+  surface_water: string;
+  residents: URL[];
+  films: URL[];
+  url: URL;
+  created: Date;
+  edited: Date;
+}
+
+export type RawPlanet = RawResource &
+  Raw<
+    Omit<Planet, 'created' | 'edited' | 'url'>,
+    {
+      residents: string[];
+      films: string[];
+    }
+  >;

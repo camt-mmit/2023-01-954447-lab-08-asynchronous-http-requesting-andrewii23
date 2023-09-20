@@ -12,9 +12,12 @@
     </button>
 
     <div class="search">
-      <button data-cursor="-color-black" data-cursor-text="Search" class="search-search" type="button"><i class='bx bx-search' ></i></button>
-      <input class="search-box" type="text" formControlName="search" />
-      <button data-cursor="-color-black" data-cursor-text="Clear" class="search-remove" type="button"><i class='bx bx-trash'></i></button>
+      <form [formGroup]="formGroup" (ngSubmit)="doSearchDataChange()">
+        <button data-cursor="-color-black" data-cursor-text="Search" class="search-search" type="submit"><i class='bx bx-search'></i></button>
+        <input class="search-box" type="text" formControlName="search" />
+        <button data-cursor="-color-black" data-cursor-text="Clear" class="search-remove" type="button" (click)="clearSearchInput()"><i class='bx bx-trash'></i></button>
+      </form>
+
     </div>
 
 
@@ -30,7 +33,12 @@
 
 <div class="data-box">
   <ul *ngIf="data.results.length > 0; else notfound">
-    <li data-cursor="-color-black" data-cursor-text="View" class="data-list" *ngFor="let item of data.results">{{ item.name }}</li>
+    <li
+    data-cursor="-color-black"
+    data-cursor-text="View"
+    class="data-list"
+    *ngFor="let item of data.results">{{ item.name }}
+  </li>
   </ul>
 </div>
 

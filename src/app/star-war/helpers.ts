@@ -1,10 +1,14 @@
 import {
   List,
   Person,
+  Planet,
   RawList,
   RawPerson,
+  RawPlanet,
   RawResource,
+  RawSpecie,
   Resource,
+  Specie,
 } from './model';
 
 export function parseResource(rawResource: RawResource): Resource {
@@ -42,5 +46,44 @@ export function parsePeopleList(
   return {
     ...parseList(rawPeopleList),
     results: rawPeopleList.results.map((result) => parsePerson(result)),
+  };
+}
+
+export function parseSpecie(rawSpecie: RawSpecie): Specie {
+  return {
+    ...rawSpecie,
+    ...parseResource(rawSpecie),
+    homeworld: new URL(rawSpecie.homeworld),
+    people: rawSpecie.people.map((url) => new URL(url)),
+    films: rawSpecie.films.map((url) => new URL(url)),
+  };
+}
+
+export function parseSpeciesList(
+  rawSpeciesList: RawList<RawSpecie>,
+): List<Specie> {
+  return {
+    ...parseList(rawSpeciesList),
+    results: rawSpeciesList.results.map((result) => parseSpecie(result)),
+  };
+}
+
+export function parsePlanet(rawPlanet: RawPlanet): Planet {
+  return {
+    ...rawPlanet,
+    created: new Date(rawPlanet.created),
+    edited: new Date(rawPlanet.edited),
+    residents: rawPlanet.residents.map((url) => new URL(url)),
+    films: rawPlanet.films.map((url) => new URL(url)),
+    url: new URL(rawPlanet.url),
+  };
+}
+
+export function parsePlanetsList(
+  rawPlanetsList: RawList<RawPlanet>,
+): List<Planet> {
+  return {
+    ...parseList(rawPlanetsList),
+    results: rawPlanetsList.results.map((result) => parsePlanet(result)),
   };
 }
