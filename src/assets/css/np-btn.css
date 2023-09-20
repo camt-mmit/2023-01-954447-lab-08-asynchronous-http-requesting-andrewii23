@@ -1,0 +1,32 @@
+.np-btn {
+  position: relative;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: 0.25s ease-in;
+  padding: 1rem;
+  border-radius: 50%;
+  width: clamp(3.125rem, 2.3945rem + 3.2468vw, 6.25rem);
+  height: clamp(3.125rem, 2.3945rem + 3.2468vw, 6.25rem);
+}
+
+.bx {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: .25s ease;
+}
+
+.np-btn .bx {
+  font-size: 3rem;
+}
+
+
+.np-btn:hover .bx{
+  font-size: 5rem;
+}
+

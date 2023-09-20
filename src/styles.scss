@@ -1,3 +1,9 @@
+@import '../node_modules/locomotive-scroll/dist/locomotive-scroll.css';
+@import './assets/css/cb-btn.css';
+@import './assets/css/np-btn.css';
+@import url('https://fonts.cdnfonts.com/css/star-wars');
+
+
 @font-face {
   font-family: matter;
   src: url(./assets/fonts/matter/matter-regular.woff2);
@@ -7,6 +13,10 @@
   font-family: matter;
   font-size: 16px;
   line-height: calc(1em + 0.5rem);
+
+  --white: #fff;
+  --black: #000;
+  --primary-clr: #feda4a;
 }
 
 * {
@@ -14,149 +24,80 @@
   margin: 0;
   padding: 0;
   font-family: matter;
-  color: #fff;
+  color: var(--primary-clr);
 }
+
+::selection {
+  color: var(--black);
+  background: var(--primary-clr);
+}
+
 
 body {
-  background-color: #000;
+  background-color: var(--black);
 }
 
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-  user-select: none;
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -99;
 }
 
-span {
-  overflow: hidden;
-  display: block;
+li {
+  list-style: none;
 }
 
-h1,
-h2,
-h3 {
-  text-transform: uppercase;
-}
-
-// button {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   color: #fff;
-//   text-decoration: none;
-//   border: 2px solid #fff;
-//   cursor: pointer;
-//   padding: 0.25rem 0.5rem;
-//   gap: 0.25rem;
-// }
-
-button:disabled {
-  opacity: 0.25;
-}
-
-input {
-  border: 2px solid #fff;
-  outline: none;
-  padding: 0.25rem 0.5rem;
-  color: #000;
-}
-
-output {
-  padding-left: 0.25rem;
+a {
+  text-decoration: none;
 }
 
 header {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
-  gap: 1.5rem;
+  height: 170px;
+  position: relative;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  margin-top: 3rem;
+}
+
+.main-nav {
+  position: absolute;
+  bottom: 0;
+}
+
+.main-title {
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(2.6rem, 1.6818rem + 3.6364vw, 6rem);
+  text-transform: uppercase;
+  font-weight: 900;
 }
 
 .nav-lists {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-}
-
-.nav-list {
-  list-style: none;
 }
 
 .nav-list a {
-  text-decoration: none;
-  color: #fff;
+  padding: .5rem 2rem;
+  font-size: clamp(1.5rem, 1.3831rem + 0.5195vw, 2rem);
 }
 
-.section {
-  border: 2px solid #000;
-  padding: 1rem;
+.test {
+  height: 200vh;
 }
-.btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-decoration: none;
-  border: 2px solid #000;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  gap: 0.25rem;
-  font-size: 1.5rem;
-}
-
-.btn-del {
-  color: #e05242;
-}
-
-.input-box {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 0.25rem;
-}
-
-.input-box label {
-  width: 60px;
-  font-weight: 600;
-}
-
-.input-box input {
-  flex: 2;
-}
-
-.input-box label {
-  margin: auto 0;
-}
-
-.box {
-  max-width: 460px;
-  margin: 0 auto;
-}
-
-.btn-del {
-  color: #e05242;
-}
-
-.btn:hover {
-  color: #ffbf11;
-}
-
-a.active {
-  color: #ffbf11;
-}
-
-.bx {
-  font-size: 20px;
-  font-weight: 500;
+.-color-black {
   color: #000;
-}
-
-.main-title {
-  color: #ffbf11;
 }

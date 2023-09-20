@@ -1,19 +1,24 @@
+<div class="test" data-scroll-container>
+<div id="particles-js"></div>
 
-<header>
-  <h1 class="main-title">{{ title }}</h1>
+<header #header>
+  <h1 #mainTitle class="main-title">{{ title }}</h1>
 
-  <nav class="nav">
-    <ul class="nav-lists">
+  <nav class="main-nav">
+    <ul #navList class="nav-lists">
       <li class="nav-list">
-        <a class="btn" routerLink="star-war" routerLinkActive="active">Starwar</a>
+        <a data-cursor="-color-black"  data-cursor-img="https://i.redd.it/flatqebyxtu41.jpg" data-cursor-stick class="btn" routerLink="star-war" routerLinkActive="active">Starwar</a>
       </li>
       <!-- <li class="nav-list">
-        <a class="btn" routerLink="dynamic-section" routerLinkActive="active"><i class='bx bx-folder' ></i>Dynamic Section</a>
+        <a data-cursor="-color-black"  data-cursor-img="https://i.redd.it/flatqebyxtu41.jpg" data-cursor-stick class="btn" routerLink="star-war" routerLinkActive="active">Starwar</a>
       </li> -->
     </ul>
   </nav>
 </header>
 
-<div class="container">
+
+
+<div class="container" #container>
   <router-outlet></router-outlet>
+</div>
 </div>

@@ -1,0 +1,8 @@
+.loading {
+  font-size: clamp(2rem, 1.2987rem + 3.1169vw, 5rem);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 5rem;
+  text-transform: uppercase;
+}
