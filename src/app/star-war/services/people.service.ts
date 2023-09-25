@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { List, Person, RawList, RawPerson, SearchData } from './../model';
 import { Observable, map } from 'rxjs';
 import { Injectable, inject } from '@angular/core';
-import { parsePeopleList } from '../helpers';
+import { parsePeopleList, parsePerson } from '../helpers';
 
 const url = 'https://swapi.dev/api/people' as const;
 
@@ -18,5 +18,13 @@ export class PeopleService {
         params: params,
       })
       .pipe(map(parsePeopleList));
+  }
+
+  get(id: string): Observable<Person> {
+    return (
+      this.http.get<RawPerson>(`${url}/${id}`).pipe(
+        map(parsePerson),
+      )
+    )
   }
 }

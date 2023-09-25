@@ -2,11 +2,12 @@ import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { List, SearchData, Specie } from '../../model';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-species-list',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './species-list.component.html',
   styleUrls: ['./species-list.component.scss'],
 })
@@ -40,6 +41,10 @@ export class SpeciesListComponent {
 
   protected get pages(): number {
     return Math.ceil(this.data.count / 10);
+  }
+
+  protected getId(url: URL): string {
+    return url.pathname.replace(/\/$/, '').split('/').pop() ?? '';
   }
 
   protected doSearchDataChange(): void {

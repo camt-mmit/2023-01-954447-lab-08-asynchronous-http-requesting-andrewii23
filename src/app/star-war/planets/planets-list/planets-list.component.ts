@@ -2,11 +2,12 @@ import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { List, Planet, SearchData } from '../../model';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-planets-list',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './planets-list.component.html',
   styleUrls: ['./planets-list.component.scss'],
 })
@@ -41,6 +42,10 @@ export class PlanetsListComponent {
 
   protected get pages(): number {
     return Math.ceil(this.data.count / 10);
+  }
+
+  protected getId(url: URL): string {
+    return url.pathname.replace(/\/$/, '').split('/').pop() ?? '';
   }
 
   protected get pagesArray(): { label: string; url: URL | null }[] {

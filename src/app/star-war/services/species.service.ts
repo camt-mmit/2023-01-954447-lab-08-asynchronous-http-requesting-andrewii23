@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { List, RawList, RawSpecie, SearchData, Specie } from './../model';
-import { parseSpeciesList } from '../helpers';
+import { parseSpecie, parseSpeciesList } from '../helpers';
 
 const url = 'https://swapi.dev/api/species' as const;
 
@@ -19,5 +19,13 @@ export class SpeciesService {
         params: params,
       })
       .pipe(map(parseSpeciesList));
+  }
+
+  get(id: string): Observable<Specie> {
+    return (
+      this.http.get<RawSpecie>(`${url}/${id}`).pipe(
+        map(parseSpecie),
+      )
+    )
   }
 }

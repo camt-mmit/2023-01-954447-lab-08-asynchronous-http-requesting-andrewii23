@@ -76,7 +76,7 @@ export interface Specie extends Resource {
   hair_colors: string;
   skin_colors: string;
   language: string;
-  homeworld: URL;
+  homeworld: URL | null;
   people: URL[];
   films: URL[];
   url: URL;

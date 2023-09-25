@@ -33,11 +33,10 @@
 
 <div class="data-box">
   <ul *ngIf="data.results.length > 0; else notfound">
-    <li
-    data-cursor="-color-black"
-    data-cursor-text="View"
-    class="data-list"
-    *ngFor="let item of data.results">{{ item.name }}
+    <li data-cursor="-color-black" data-cursor-text="View"  *ngFor="let item of data.results">
+      <a class="data-list" [routerLink]="getId(item.url)">
+        {{ item.name }}
+      </a>
   </li>
   </ul>
 </div>

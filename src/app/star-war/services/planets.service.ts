@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { List, Planet, RawList, RawPlanet, SearchData } from './../model';
-import { parsePlanetsList } from '../helpers';
+import { parsePlanet, parsePlanetsList } from '../helpers';
 
 const url = 'https://swapi.dev/api/planets' as const;
 
@@ -19,5 +19,13 @@ export class PlanetsService {
         params: params,
       })
       .pipe(map(parsePlanetsList));
+  }
+
+  get(id: string): Observable<Planet> {
+    return (
+      this.http.get<RawPlanet>(`${url}/${id}`).pipe(
+        map(parsePlanet),
+      )
+    )
   }
 }

@@ -151,6 +151,11 @@ button {
 
 .data-box {
   margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .data-box ul {
@@ -161,6 +166,11 @@ button {
   gap: clamp(0.25rem, 0.0747rem + 0.7792vw, 1rem);
 }
 
+.data-box ul li {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
 .data-list {
   padding: clamp(1rem, 0.7662rem + 1.039vw, 2rem);
@@ -192,3 +202,18 @@ button {
   transform: translateY(-50%);
   font-size: clamp(1rem, 0.5325rem + 2.0779vw, 3rem);
 }
+
+dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+
+  & > dt {
+    font-weight: bold;
+  }
+
+  & > dd {
+    margin: 0;
+  }
+}
+

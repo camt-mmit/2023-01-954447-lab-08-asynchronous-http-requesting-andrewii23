@@ -53,7 +53,7 @@ export function parseSpecie(rawSpecie: RawSpecie): Specie {
   return {
     ...rawSpecie,
     ...parseResource(rawSpecie),
-    homeworld: new URL(rawSpecie.homeworld),
+    homeworld: rawSpecie.homeworld?  new URL(rawSpecie.homeworld) : null,
     people: rawSpecie.people.map((url) => new URL(url)),
     films: rawSpecie.films.map((url) => new URL(url)),
   };
