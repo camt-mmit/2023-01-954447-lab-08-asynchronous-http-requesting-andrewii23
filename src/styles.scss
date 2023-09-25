@@ -16,7 +16,7 @@
 
   --white: #fff;
   --black: #000;
-  --primary-clr: #feda4a;
+  --primary-clr: #FFC107;
 }
 
 * {
@@ -99,7 +99,7 @@ button {
   height: 200vh;
 }
 .-color-black {
-  color: #000;
+  color: var(--black);
 }
 
 .loading {
@@ -129,7 +129,7 @@ button {
   background: none;
   outline: none;
   border: none;
-  border-bottom: 2px solid #feda4a;
+  border-bottom: 2px solid var(--primary-clr);
   height: clamp(3.125rem, 2.3945rem + 3.2468vw, 6.25rem);
   font-size: clamp(1rem, 0.5325rem + 2.0779vw, 3rem);
   flex: 1;
@@ -179,8 +179,8 @@ button {
 }
 
 .data-list:hover {
-  background: #feda4a;
-  color: #000;
+  background: var(--primary-clr);
+  color: var(--black);
 }
 
 .search {
