@@ -7,8 +7,6 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './google-page.component.html',
-  styleUrls: ['./google-page.component.scss']
+  styleUrls: ['./google-page.component.scss'],
 })
-export class GooglePageComponent {
-
-}
+export class GooglePageComponent {}
