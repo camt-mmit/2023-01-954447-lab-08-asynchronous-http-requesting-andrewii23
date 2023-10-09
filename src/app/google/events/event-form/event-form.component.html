@@ -1,0 +1,39 @@
+<form [formGroup]="formGroup" (ngSubmit)="doSubmit()">
+  <mat-form-field color="primary" appearance="outline">
+    <mat-label>Summary</mat-label>
+    <!-- <mat-icon>summarize</mat-icon> -->
+    <input
+      type="text"
+      matInput
+      formControlName="summary"
+      required
+      placeholder="Input Summary"
+    />
+    <mat-hint>The summary of event</mat-hint>
+    <mat-error>Please fill the summary</mat-error>
+  </mat-form-field>
+
+  <mat-form-field color="primary" appearance="outline">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input
+        matStartDate
+        placeholder="Start date"
+        formControlName="start"
+        required
+      />
+      <input matEndDate placeholder="End date" formControlName="end" required />
+    </mat-date-range-input>
+    <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
+    <mat-error>Required!</mat-error>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+
+  <div>
+    <button type="submit" mat-stroked-button>
+      <mat-icon>add</mat-icon>
+      create
+    </button>
+  </div>
+</form>
