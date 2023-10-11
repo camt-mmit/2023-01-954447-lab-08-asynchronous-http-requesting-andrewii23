@@ -8,7 +8,7 @@ export type Configuration = {
 };
 
 export const ConfigurationToken = new InjectionToken<Configuration>(
-  'Google configuration',
+  'Google Configuration',
 );
 
 export type TokenData = {
@@ -39,6 +39,7 @@ export class AccessTokenNotFound extends Error {
 }
 
 export class SecurityTokenNotFound extends Error {
+  override stack = new Error().stack;
   override name = this.constructor.name;
 
   constructor(securityToken: string, options?: ErrorOptions) {
