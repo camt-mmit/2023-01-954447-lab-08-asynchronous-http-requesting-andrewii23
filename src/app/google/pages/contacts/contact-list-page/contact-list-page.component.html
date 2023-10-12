@@ -1,1 +1,7 @@
-<p>contact-list-page works!</p>
+<nav>
+  <a mat-stroked-button routerLink="create"> Create </a>
+</nav>
+
+<app-contact-list *ngIf="data$ | async as data" [data]="data">
+  <br />
+</app-contact-list>

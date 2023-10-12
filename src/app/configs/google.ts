@@ -11,5 +11,5 @@ export const configuration: Configuration = {
   ],
   redirect_uri: isDevMode()
     ? 'http://location:4200/google_authorization'
-    : 'https://camt-mmit.github.io/2023-01-954447-lab-08-asynchronous-http-requesting-phuwakorn11/google/authorization',
+    : 'https://camt-mmit.github.io/2023-01-954447-lab-08-asynchronous-http-requesting-andrewii23/google/authorization',
 };
