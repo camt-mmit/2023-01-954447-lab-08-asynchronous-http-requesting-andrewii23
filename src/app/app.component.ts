@@ -47,10 +47,18 @@ export class AppComponent implements AfterViewInit, OnInit {
       console.error('The container element was not found.');
     }
 
-    const cursor = new MouseFollower({
-      container: this.document.body,
-      speed: 0.6,
-    });
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent,
+      );
+
+    // Initialize the MouseFollower only if the user is not on a mobile device
+    if (!isMobile) {
+      const cursor = new MouseFollower({
+        container: document.body,
+        speed: 0.6,
+      });
+    }
     // this.initialAnimations();
   }
   // initialAnimations(): void {
