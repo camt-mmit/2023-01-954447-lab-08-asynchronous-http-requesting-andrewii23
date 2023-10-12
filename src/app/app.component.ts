@@ -60,39 +60,44 @@ export class AppComponent implements AfterViewInit, OnInit {
       });
     }
     // this.initialAnimations();
+    const cursor = new MouseFollower({
+      container: this.document.body,
+      speed: 0.6,
+    });
+    this.initialAnimations();
   }
-  // initialAnimations(): void {
-  //   gsap.from(this.mainTitle.nativeElement, {
-  //     y: '100vh',
-  //     duration: 3,
-  //     scale: 15,
-  //     onComplete: () => {
-  //       // Start floating animation after zoom out
-  //       gsap.to(this.mainTitle.nativeElement, {
-  //         y: '10px', // Adjust the desired floating distance
-  //         duration: 1,
-  //         scale: 1,
-  //         repeat: -1, // Infinite repeat
-  //         yoyo: true, // Reverse the animation to create the floating effect
-  //         ease: 'power1.inOut', // Easing function for smooth motion
-  //       });
-  //     },
-  //   });
+  initialAnimations(): void {
+    gsap.from(this.mainTitle.nativeElement, {
+      y: '100vh',
+      duration: 3,
+      scale: 15,
+      onComplete: () => {
+        // Start floating animation after zoom out
+        gsap.to(this.mainTitle.nativeElement, {
+          y: '10px', // Adjust the desired floating distance
+          duration: 1,
+          scale: 1,
+          repeat: -1, // Infinite repeat
+          yoyo: true, // Reverse the animation to create the floating effect
+          ease: 'power1.inOut', // Easing function for smooth motion
+        });
+      },
+    });
 
-  //   gsap.from(this.container.nativeElement, {
-  //     y: 20,
-  //     duration: 2,
-  //     opacity: 0,
-  //     delay: 3,
-  //   });
-  //   gsap.from(this.navList.nativeElement.childNodes, {
-  //     duration: 0.5,
-  //     opacity: 0,
-  //     y: -20,
-  //     stagger: 0.2,
-  //     delay: 3,
-  //   });
-  // }
+    gsap.from(this.container.nativeElement, {
+      y: 20,
+      duration: 2,
+      opacity: 0,
+      delay: 3,
+    });
+    gsap.from(this.navList.nativeElement.childNodes, {
+      duration: 0.5,
+      opacity: 0,
+      y: -20,
+      stagger: 0.2,
+      delay: 3,
+    });
+  }
 
   ngAfterViewInit() {
     particlesJS('particles-js', {
