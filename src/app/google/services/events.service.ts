@@ -34,7 +34,6 @@ export class EventsService {
       map(parseEventsList),
     );
   }
-
   create(eventFormData: EventFormData): Observable<EventResource> {
     return this.tokenService.getAuthorizationHeader().pipe(
       switchMap((authorizationHeader) =>
